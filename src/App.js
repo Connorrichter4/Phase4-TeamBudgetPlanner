@@ -5,15 +5,16 @@ import ManagerHome from './components/Manager/ManagerHome';
 import FinanceHome from './components/Finance/FinanceHome';
 import NavBar from './components/NavBar';
 
-
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-	const [projects, setProjects] = useState(() => JSON.parse(localStorage.getItem('projects')) || initialProjects);
+	const [projects, setProjects] = useState(
+		() => JSON.parse(localStorage.getItem('projects')) || initialProjects
+	);
 	useEffect(() => {
 		localStorage.setItem('projects', JSON.stringify(projects));
-		console.log(projects)
+		console.log(projects);
 	}, [projects]);
 
 	return (
@@ -25,7 +26,7 @@ function App() {
 					path='/'
 					render={() => {
 						return (
-							<ManagerHome projects={projects}/>
+							<ManagerHome projects={projects} setProjects={setProjects} />
 						);
 					}}
 				/>

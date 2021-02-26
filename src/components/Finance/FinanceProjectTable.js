@@ -13,7 +13,7 @@ function FinanceProjectTable(props) {
 			props.projects.map((item) => (item.id === project.id ? project : item))
 		);
 		console.log(project);
-	}, [project]);
+	}, [props, project]);
 
 	return (
 		<tr key={project.id}>
