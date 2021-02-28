@@ -66,7 +66,6 @@ function ManagerHome(props) {
 								<input
 									type='number'
 									placeholder='Project Cost'
-									value={project.project_cost}
 									name='project_cost'
 									onChange={handleChange}
 								/>
