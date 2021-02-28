@@ -3,16 +3,18 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
 function ManagerHome(props) {
-	const [project, setProject] = useState({
+	const initialProject = {
 		id: props.projects.length + 1,
 		client: '',
 		project_name: '',
 		project_cost: 0,
 		approval: 'pending',
-	});
+	};
+	const [project, setProject] = useState(initialProject);
 
 	const handleSubmit = (event) => {
 		props.setProjects([...props.projects, project]);
+		setProject(initialProject);
 	};
 
 	const handleChange = (event) => {
@@ -47,6 +49,7 @@ function ManagerHome(props) {
 									type='text'
 									placeholder='Client Name'
 									name='client'
+									value={project.client}
 									onChange={handleChange}
 								/>
 							</td>
@@ -54,6 +57,7 @@ function ManagerHome(props) {
 								<input
 									type='text'
 									placeholder='Project Name'
+									value={project.project_name}
 									name='project_name'
 									onChange={handleChange}
 								/>
@@ -62,6 +66,7 @@ function ManagerHome(props) {
 								<input
 									type='number'
 									placeholder='Project Cost'
+									value={project.project_cost}
 									name='project_cost'
 									onChange={handleChange}
 								/>
